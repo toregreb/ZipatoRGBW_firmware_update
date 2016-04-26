@@ -6,4 +6,3 @@ Ce document décrit la procédure de mise à jour du firmware de l'ampoule Zipat
 '''
 
 link:ZipatoRGBWupdate.asciidoc[Mise à jour lampe Zipato RGBW avec Homeseer]
-
