@@ -19,7 +19,7 @@ par exemple, rajouter la ligne :
 == Gestion du Zwave
 - Sélectionner *Plug-ins/manage* puis cliquer sur _Additionnal Interfaces_
 
-image:images/0_1 plugins.png["plugin Zwave",align="center"]
+image::images/0_1 plugins.png["plugin Zwave"]
 
 - Dans la liste qui s'affiche, dérouler *Lighting & Primary Technology* puis au dessus, cliquer sur _Download and Install_
 
