@@ -1,0 +1,75 @@
+= Mise à jour du firmware de l'ampoule Zipato RGBW avec Homeseer
+Doc writer <bergerotpierre@gmail.com>
+v1.0, 2016-04-26
+:toc:
+
+== Prérequis
+- Un PC sous Windows ou Linux. Néanmoins, il semble que la version sous Windows de HS3 soit plus complète.
+- Une clé Zwave. Pour ma part, il s'agit d'une clé SIGMA DESIGN ACC-UZB-E. Sur certains forums une clé Zwave+
+est préconisée pour l'OTA mais ce n'est pas mon cas (???)
+- Exclure l'ampoule de Jeedom : voir la documentation de Jeedom
+
+== Installation
+- Télécharger Homeseer HS3 en version d'évaluation 30 jours.
+- Lancer _SetupHS3_3_0_0_280.exe_ et suivre les instructions.
+- Démarrer Homeseer. Si le serveur web ne démarre pas, il faut changer le port dans 'c:\program Files (x86)\Homeseer HS3\config\settings.ini'
+par exemple, rajouter la ligne :
+* +gWebSvrPort=81+
+
+== Gestion du Zwave
+- Sélectionner *Plug-ins/manage* puis cliquer sur _Additionnal Interfaces_
+
+image:images/0_1 plugins.png["plugin Zwave",align="center"]
+
+- Dans la liste qui s'affiche, dérouler *Lighting & Primary Technology* puis au dessus, cliquer sur _Download and Install_
+
+image:images/0_3 plugin download and install.png["Download and install",align="center"]
+
+- Activer le plugin :
+
+image:images/0_2 Plugin activé.png["Plugin activé",align="center"]
+
+Et ajouter le contrôleur (Clé Z-wave)
+
+- Brancher la clé Z-wave, repérer son Port COM dans le _gestionnaire de périphériques_
+- Sélectionner le Menu *PLUG-INS/ZWave/Controller Management* et ajouter l'interface Z-wave (_Add Interface_)
+- une fois detectée, il ne reste plus qu'à activer le contrôleur
+
+image:images/Inclusion Zipato RGBW.png["Ajout de la clé Zwave",align="Center"]
+
+== Inclusion ampoule Zipato RGBW dans HS3
+
+- Dans la liste déroulante *Actions:*, sélectionner _Remove/exclude Node_,
+
+image:images/0-Actions controller.png["Remove/exclude node",align="Center"]
+
+- puis clic sur _start_,
+- inclure l'ampoule en tapotant dessus et attendre la réalisation de l'inclusion
+dans la fenetre,
+- sélectionner le menu *VIEW/Device Management* pour contrôler la lampe,
+- faire quelques tests pour vérifier son bon fonctionnement avec Homeseer.
+
+image:images/2-device .png["Device management",align="Center"]
+
+== Mise à jour du firmware :
+
+- Menu *PLUG-INS/Z-Wave/Node information* : l'ampoule est bien en version 1.5 (_Firmware_)
+
+image:images/3_Node information.png["Information noeud",align="Center"]
+
+- Menu *VIEW/ Device Management* et dans la fenêtre qui s'affiche, cliquer sur le nom de la 1ère ligne : _Zipato Switch Multilevel Node 2 Root_
+
+image:images/4-Modify device Node.png["Modification noeud équipement",align="Center"]
+
+- Cliquer sur l'onglet _Z-Wave_,
+
+image:images/5-ZwaveTab.png["Onglet Z-Wave",align="Center"]
+
+- Au §*Firmware update*, cliquer sur *Select File*, et sélectionner le fichier correspondant au firmware (.hex),
+
+image:images/6-firmware selected.png["Sélection du firmware",align="Center"]
+
+- Cliquer sur *Start*
+- Laisser l'opération se terminer.
+
+image:images/6-firmware updated 1.7 version.png["Firmware à jour en version 1.7",align="Center"]
